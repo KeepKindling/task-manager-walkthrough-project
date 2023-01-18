@@ -8,7 +8,7 @@ class Category(db.Model):
     tasks = db.relationship("Task", backref="category", cascade="all, delete", lazy=True)  # noqa
 
     def __repr__(self):
-        # __repr__ to represent itself in thre form of a string
+        # __repr__ to represent itself in the form of a string
         return self.category_name
 
 
@@ -22,7 +22,7 @@ class Task(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey("category.id", ondelete="CASCADE"), nullable=False)  # noqa
 
     def __repr__(self):
-        # __repr__ to represent itself in thre form of a string
+        # __repr__ to represent itself in the form of a string
         return "#{0} - Task: {1} | Urgent: {2}".format(
             self.id, self.task_name, self.is_urgent
         )
